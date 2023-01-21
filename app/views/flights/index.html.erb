@@ -1,0 +1,22 @@
+<h1>Search Flights:</h1>
+
+<%= form_with model: @flight, method: :get, url: flights_path do |form| %>
+  <%= form.label(:start_date, "Date:")%>
+  <%= date_select("flight", :start_date, :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year', :start_year => Time.now.year, :end_year => Time.now.year+1})%>
+  <%= form.label(:departure_airport_id, "Departure:")%>
+  <%= select_tag(:departure_airport_id, options_for_select(@departure_options) ) %>
+  <%= form.label(:arrival_airport_id, "Arrival:")%>
+  <%= select_tag(:arrival_airport_id, options_for_select(@arrival_options) ) %>
+  <%= form.submit("Submit!")%>
+<% end %>
+
+<h1>All Flights:</h1>
+<% @all_flights.each do |f| %>
+    <div style="display: flex; gap: 1em;">
+        <p> Flight #<%= f.id %> </p>
+        <p> Departs: <%= f.start_date %></p>
+        <p> From: <%= f.departure_airport.name %> </p>
+        <p> To: <%= f.arrival_airport.name %> </p>
+        <p> Duration: <%= f.duration %> hours</p>
+    </div>
+<%end%>

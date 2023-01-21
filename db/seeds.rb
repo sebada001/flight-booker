@@ -26,4 +26,13 @@ Airport.create(name: "MIA")
 Airport.create(name: "LAX")
 Airport.create(name: "SDQ")
 
+Flight.create(start_date: Time.now, departure_airport_id: 1, arrival_airport_id: 2, duration: 1.5)
+Flight.create(start_date: Time.now, departure_airport_id: 1, arrival_airport_id: 3, duration: 4.25)
+Flight.create(start_date: Time.now, departure_airport_id: 2, arrival_airport_id: 1, duration: 1.5)
+Flight.create(start_date: Time.now, departure_airport_id: 2, arrival_airport_id: 3, duration: 4.75)
+Flight.create(start_date: Time.now, departure_airport_id: 2, arrival_airport_id: 4, duration: 2)
+Flight.create(start_date: Time.now, departure_airport_id: 3, arrival_airport_id: 1, duration: 4.25)
+Flight.create(start_date: Time.now, departure_airport_id: 3, arrival_airport_id: 2, duration: 4.75)
+Flight.create(start_date: Time.now, departure_airport_id: 4, arrival_airport_id: 2, duration: 2)
+
 puts "Seeding done."
